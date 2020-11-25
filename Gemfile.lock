@@ -76,6 +76,7 @@ GEM
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     crass (1.0.6)
+    database_cleaner (1.8.5)
     deep_merge (1.2.1)
     diff-lcs (1.4.4)
     dry-configurable (0.11.6)
@@ -260,6 +261,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   config
+  database_cleaner
   factory_bot_rails
   faker
   listen (~> 3.2)
