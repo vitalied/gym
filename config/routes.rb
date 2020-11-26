@@ -8,6 +8,15 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :trainee do
+    resources :trainees, only: [] do
+      collection do
+        post :select_trainer
+      end
+    end
+    resources :workouts, only: :index
+  end
+
   # this needs to go last!
   match '/:anything', to: 'application_public#routing_error', constraints: { anything: /.*/ }, via: :all
 
