@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_225741) do
+ActiveRecord::Schema.define(version: 2020_11_25_225942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 2020_11_25_225741) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
+  create_table "workout_results", force: :cascade do |t|
+    t.bigint "workout_id", null: false
+    t.bigint "exercise_id", null: false
+    t.integer "medium_pulse", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exercise_id"], name: "index_workout_results_on_exercise_id"
+    t.index ["workout_id", "exercise_id"], name: "index_workout_results_on_workout_id_and_exercise_id", unique: true
+    t.index ["workout_id"], name: "index_workout_results_on_workout_id"
+  end
+
   create_table "workouts", force: :cascade do |t|
     t.bigint "trainer_id", null: false
     t.bigint "trainee_id"
@@ -67,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_225741) do
   add_foreign_key "exercises_workouts", "workouts"
   add_foreign_key "trainees_trainers", "users", column: "trainee_id"
   add_foreign_key "trainees_trainers", "users", column: "trainer_id"
+  add_foreign_key "workout_results", "exercises"
+  add_foreign_key "workout_results", "workouts"
   add_foreign_key "workouts", "users", column: "trainee_id"
   add_foreign_key "workouts", "users", column: "trainer_id"
 end

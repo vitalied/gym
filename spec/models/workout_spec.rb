@@ -6,6 +6,7 @@ RSpec.describe Workout, type: :model do
   it { is_expected.to belong_to(:trainer) }
   it { is_expected.to belong_to(:trainee).optional }
   it { is_expected.to have_and_belong_to_many(:exercises) }
+  it { is_expected.to have_many(:workout_results) }
 
   it { is_expected.to validate_presence_of(:trainer_id) }
   it { is_expected.to validate_presence_of(:name) }

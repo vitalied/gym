@@ -26,6 +26,7 @@ class Workout < ApplicationRecord
   belongs_to :trainer
   belongs_to :trainee, optional: true
   has_and_belongs_to_many :exercises
+  has_many :workout_results
 
   STATES = %w[draft published].freeze
   STATE = Struct.new(*STATES.map(&:to_sym)).new(*STATES)
