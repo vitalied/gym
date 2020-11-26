@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :trainer do
+    resources :trainees, only: :index
+    resources :workouts do
+      member do
+        put :assign_trainee
+      end
+    end
+  end
+
   # this needs to go last!
   match '/:anything', to: 'application_public#routing_error', constraints: { anything: /.*/ }, via: :all
 
