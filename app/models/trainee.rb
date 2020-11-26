@@ -19,6 +19,7 @@
 #
 class Trainee < User
   has_and_belongs_to_many :trainers, join_table: :trainees_trainers
+  has_many :workouts
 
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }
 

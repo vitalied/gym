@@ -19,6 +19,7 @@
 #
 class Trainer < User
   has_and_belongs_to_many :trainees, join_table: :trainees_trainers
+  has_many :workouts
 
   validates :area_of_expertise, presence: true
 end
