@@ -9,6 +9,7 @@ SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
 # Code Coverage check
 SimpleCov.start 'rails' do
   add_filter 'spec'
+  add_filter 'app/services/importer'
 end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'

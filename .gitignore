@@ -34,6 +34,7 @@ config/environments/*.local.yml
 
 # Ignore import files
 /import/*
+!/import/exercises_example.csv
 
 # Ignore Rubocop files
 .rubocop-*
