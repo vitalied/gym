@@ -1,3 +1,5 @@
+![build](https://github.com/vitalied/gym/workflows/build/badge.svg)
+
 # Gym
 
 ## Setup
